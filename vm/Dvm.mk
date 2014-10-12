@@ -271,7 +271,7 @@ ifeq ($(dvm_arch),arm)
     endif
     LOCAL_CFLAGS += -DHAVE_HALFWORD_ATOMIC_MEMMOVE
   else
-  ifeq ($(TARGET_CPU_VARIANT),cortex-a15)
+  ifneq ($(filter cortex-a8 cortex-a15,$(TARGET_CPU_VARIANT)),)
     LOCAL_CFLAGS += -DHAVE_HALFWORD_ATOMIC_MEMMOVE
   endif
   endif
